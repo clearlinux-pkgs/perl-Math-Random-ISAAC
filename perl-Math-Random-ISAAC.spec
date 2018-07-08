@@ -4,13 +4,13 @@
 #
 Name     : perl-Math-Random-ISAAC
 Version  : 1.004
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmath-random-isaac-perl/libmath-random-isaac-perl_1.004-1.debian.tar.xz
 Summary  : 'Perl interface to the ISAAC PRNG algorithm'
 Group    : Development/Tools
-License  : Artistic-2.0 GPL-3.0 MIT
+License  : Artistic-1.0 Artistic-2.0 GPL-1.0 GPL-3.0 MIT
 Requires: perl-Math-Random-ISAAC-license
 Requires: perl-Math-Random-ISAAC-man
 Requires: perl(Test::NoWarnings)
@@ -68,6 +68,7 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/perl-Math-Random-ISAAC
 cp LICENSE %{buildroot}/usr/share/doc/perl-Math-Random-ISAAC/LICENSE
+cp deblicense/copyright %{buildroot}/usr/share/doc/perl-Math-Random-ISAAC/deblicense_copyright
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot}
 else
@@ -86,6 +87,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files license
 %defattr(-,root,root,-)
 /usr/share/doc/perl-Math-Random-ISAAC/LICENSE
+/usr/share/doc/perl-Math-Random-ISAAC/deblicense_copyright
 
 %files man
 %defattr(-,root,root,-)
