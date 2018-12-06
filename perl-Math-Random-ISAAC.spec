@@ -4,7 +4,7 @@
 #
 Name     : perl-Math-Random-ISAAC
 Version  : 1.004
-Release  : 5
+Release  : 6
 URL      : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmath-random-isaac-perl/libmath-random-isaac-perl_1.004-1.debian.tar.xz
