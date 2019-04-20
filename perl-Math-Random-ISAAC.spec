@@ -4,13 +4,13 @@
 #
 Name     : perl-Math-Random-ISAAC
 Version  : 1.004
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JA/JAWNSY/Math-Random-ISAAC-1.004.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libm/libmath-random-isaac-perl/libmath-random-isaac-perl_1.004-1.debian.tar.xz
-Summary  : 'Perl interface to the ISAAC PRNG algorithm'
+Summary  : Perl interface to the ISAAC PRNG algorithm
 Group    : Development/Tools
-License  : Artistic-1.0 Artistic-2.0 GPL-1.0 GPL-3.0 MIT
+License  : Artistic-2.0 GPL-3.0 MIT
 Requires: perl-Math-Random-ISAAC-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Test::NoWarnings)
@@ -24,6 +24,7 @@ Perl interface to the ISAAC PRNG algorithm
 Summary: dev components for the perl-Math-Random-ISAAC package.
 Group: Development
 Provides: perl-Math-Random-ISAAC-devel = %{version}-%{release}
+Requires: perl-Math-Random-ISAAC = %{version}-%{release}
 
 %description dev
 dev components for the perl-Math-Random-ISAAC package.
@@ -42,7 +43,7 @@ license components for the perl-Math-Random-ISAAC package.
 cd ..
 %setup -q -T -D -n Math-Random-ISAAC-1.004 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Math-Random-ISAAC-1.004/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Math-Random-ISAAC-1.004/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -68,7 +69,6 @@ make TEST_VERBOSE=1 test
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Math-Random-ISAAC
 cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Math-Random-ISAAC/LICENSE
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Math-Random-ISAAC/deblicense_copyright
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -92,4 +92,3 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl-Math-Random-ISAAC/LICENSE
-/usr/share/package-licenses/perl-Math-Random-ISAAC/deblicense_copyright
